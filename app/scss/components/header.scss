@@ -1,25 +1,29 @@
-@use '../util' as *;
+@use "../util" as *;
 
 .header {
-    margin-top: rem(36);
-    display: flex;
+  margin-top: rem(36);
+  display: flex;
+  flex-direction: column;
 
+  @include breakpoint(medium) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
-    @include breakpoint(medium){
-        justify-content: space-between;
+  &__title {
+    width: 100%;
+    border-bottom: rem(1) solid var(--toggle-light);
+    padding-bottom: rem(20);
+
+    @include breakpoint(medium) {
+      width: auto;
+      border-bottom: none;
     }
+  }
 
-    &__title {
-        width: 100%;
-
-        @include breakpoint(medium) {
-            width: auto;
-        }
-    }
-
-    &__subtitle {
-        font-size: rem(14);
-        font-weight: 700;
-        color: var(--dark-text1);
-    }
+  &__subtitle {
+    font-size: rem(14);
+    font-weight: 700;
+    color: var(--dark-text1);
+  }
 }
